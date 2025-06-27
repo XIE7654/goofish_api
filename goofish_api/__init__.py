@@ -8,3 +8,5 @@ class GoofishClient(BaseClient):
         super().__init__(app_key, access_token, debug)
         self.user = api.User(self)
         self.good = api.Good(self)
+        self.order = api.Order(self)
+        self.other = api.Other(self)

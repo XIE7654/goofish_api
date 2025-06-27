@@ -6,6 +6,6 @@ from goofish_api.utils.helpers import action
 class User(BaseAPI):
 
     @action("/api/open/user/authorize/list")
-    def get_authorize_list(self,  **kwargs) -> ApiResponse:
+    def get_authorize_list(self, **kwargs) -> ApiResponse:
         """ 查询闲鱼店铺 """
         return self._request(data={**kwargs})
