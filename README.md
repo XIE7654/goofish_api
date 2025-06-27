@@ -1,3 +1,7 @@
+# Goofish API
+
+Python SDK for interacting with the Goofish API.
+
 ```shell
 # 安装
 pip install goofish_api
