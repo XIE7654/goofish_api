@@ -1,0 +1,15 @@
+**/.idea/
+.idea/**
+**/*.pyc
+__pycache__/
+build/
+*.egg-info/
+.python-version
+.pytest_cache/
+dist/
+eggs/
+lib/
+lib64/
+.DS_Store
+docs/_build/
+**/*.env
