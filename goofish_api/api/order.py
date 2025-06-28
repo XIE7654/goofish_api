@@ -7,9 +7,10 @@ from goofish_api.utils.helpers import action
 class Order(BaseAPI):
 
     @action('/api/open/order/list')
-    def get_order_list(self, order_status: OrderStatus, refund_status: RefundStatus, order_time: [], pay_time: [],
-                       consign_time: [], confirm_time: [], refund_time: [], update_time: [], page_no: int,
-                       page_size: int, **kwargs) -> ApiResponse:
+    def get_order_list(self, order_status: OrderStatus = None, refund_status: RefundStatus = None,
+                       order_time: [] = None, pay_time: [] = None,
+                       consign_time: [] = None, confirm_time: [] = None, refund_time: [] = None, update_time: [] = None,
+                       page_no: int = None, page_size: int = None, **kwargs) -> ApiResponse:
         """ 获取订单列表
         :param order_status: 订单状态
         :param refund_status: 退款状态

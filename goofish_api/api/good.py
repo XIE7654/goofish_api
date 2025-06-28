@@ -28,7 +28,7 @@ class Good(BaseAPI):
 
     @action('/api/open/product/pv/list')
     def get_product_pv_list(self, item_biz_type: ItemBizType, sp_biz_type: SpBizType,
-                            channel_cat_id: int, sub_property_id: int = '', **kwargs) -> ApiResponse:
+                            channel_cat_id: int, sub_property_id: int = None, **kwargs) -> ApiResponse:
         """ 查询商品属性
         :param item_biz_type: 商品类型（必需）
         :param sp_biz_type: 行业类型（必需）
@@ -51,8 +51,9 @@ class Good(BaseAPI):
         return self._request(data={**kwargs, **data})
 
     @action('/api/open/product/list')
-    def get_product_list(self, online_time: [], offline_time: [], sold_time: [], update_time: [], create_time: [],
-                         product_status: ProductStatus, sale_status: SaleStatus, page_no: int = 1,
+    def get_product_list(self, online_time: [] = None, offline_time: [] = None, sold_time: [] = None,
+                         update_time: [] = None, create_time: [] = None,
+                         product_status: ProductStatus = None, sale_status: SaleStatus = None, page_no: int = 1,
                          page_size: int = 50, **kwargs):
         """ 查询商品列表
         :param online_time: 商品上架时间 第一个元素值为开始时间戳,第二个元素值为结束时间戳
@@ -327,7 +328,8 @@ class Good(BaseAPI):
         return self._request(data={**kwargs, **data})
 
     @action('/api/open/product/publish')
-    def product_publish(self, product_id: int, user_name: [], specify_publish_time: str, notify_url: str, **kwargs):
+    def product_publish(self, product_id: int, user_name: [], specify_publish_time: str = None, notify_url: str = None,
+                        **kwargs):
         """ 上架商品 特别提醒：本接口会采用异步的方式更新商品信息到闲鱼App上，因此更新结果采用回调的方式进行通知。
         :param product_id: 商品数据列表
         :param user_name: 闲鱼会员名列表，
@@ -555,8 +557,8 @@ class Good(BaseAPI):
         return self._request(data={**kwargs, **data})
 
     @action('/api/open/product/edit/stock')
-    def product_edit_stock(self, product_id: int, price: int, original_price: int,
-                           stock: int, sku_items: [], **kwargs) -> ApiResponse:
+    def product_edit_stock(self, product_id: int, price: int = None, original_price: int = None,
+                           stock: int = None, sku_items: [] = None, **kwargs) -> ApiResponse:
         """ 编辑商品库存
         :param product_id: 商品ID
         :param price: 商品价格（分）
