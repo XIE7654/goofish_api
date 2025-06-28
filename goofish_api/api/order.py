@@ -10,16 +10,16 @@ class Order(BaseAPI):
     def get_order_list(self, order_status: OrderStatus = None, refund_status: RefundStatus = None,
                        order_time: [] = None, pay_time: [] = None,
                        consign_time: [] = None, confirm_time: [] = None, refund_time: [] = None, update_time: [] = None,
-                       page_no: int = None, page_size: int = None, **kwargs) -> ApiResponse:
+                       page_no: int = 1, page_size: int = 50, **kwargs) -> ApiResponse:
         """ 获取订单列表
-        :param order_status: 订单状态
-        :param refund_status: 退款状态
-        :param order_time: 订单时间范围
-        :param pay_time: 支付时间范围
-        :param consign_time: 发货时间范围
-        :param confirm_time: 确认收货时间范围
-        :param refund_time: 退款时间范围
-        :param update_time: 更新时间范围
+        :param order_status: 订单状态 (可选)
+        :param refund_status: 退款状态 (可选)
+        :param order_time: 订单时间范围 (可选)
+        :param pay_time: 支付时间范围 (可选)
+        :param consign_time: 发货时间范围 (可选)
+        :param confirm_time: 确认收货时间范围 (可选)
+        :param refund_time: 退款时间范围 (可选)
+        :param update_time: 更新时间范围 (可选)
         :param page_no: 页码
         :param page_size: 每页大小
         """
@@ -58,19 +58,21 @@ class Order(BaseAPI):
         return self._request(data={**kwargs, **data})
 
     @action('/api/open/order/ship')
-    def order_ship(self, order_no: str, ship_name, ship_mobile, ship_district_id, ship_prov_name,
-                   ship_city_name, ship_area_name, waybill_no, express_name, express_code, **kwargs) -> ApiResponse:
+    def order_ship(self, order_no: str, waybill_no: str, express_name: str, express_code: str, ship_name=None,
+                   ship_mobile=None, ship_district_id=None, ship_prov_name=None,
+                   ship_city_name=None, ship_area_name=None, **kwargs) -> ApiResponse:
         """ 订单物流发货
-        :param order_no: 订单号
-        :param ship_name: 收货人姓名
-        :param ship_mobile: 收货人手机号
-        :param ship_district_id: 收货人所在地区ID
-        :param ship_prov_name: 收货人所在省份名称
-        :param ship_city_name: 收货人所在城市名称
-        :param ship_area_name: 收货人所在区县名称
-        :param waybill_no: 运单号
-        :param express_name: 快递公司名称
-        :param express_code: 快递公司编码
+        :param order_no: 订单号 (必填)
+        :param waybill_no: 运单号 (必填)
+        :param express_name: 快递公司名称 (必填)
+        :param express_code: 快递公司编码 (必填)
+        :param ship_name: 收货人姓名 (选填)
+        :param ship_mobile: 收货人手机号 (选填)
+        :param ship_district_id: 收货人所在地区ID (如果没有传入该参数，则必传省市区)
+        :param ship_prov_name: 收货人所在省份名称 (如果没有传入ship_district_id，则必传该参数)
+        :param ship_city_name: 收货人所在城市名称 (如果没有传入ship_district_id，则必传该参数)
+        :param ship_area_name: 收货人所在区县名称 (如果没有传入ship_district_id，则必传该参数)
+
         示例：
         {
             "order_no": "1339920336328048683",
