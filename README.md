@@ -6,8 +6,19 @@
 Goofish API Python SDK 是一个用于闲鱼开放平台的Python客户端库，提供了完整的API封装，支持商品管理、订单处理、用户授权等功能。
 
 
-**<font color="red">使用邀请码订购会员可享最高85折优惠，立减30: 需要邀请码可加wx： JUN765462425</font>**
-
+**<font color="red">使用邀请码订购会员可享最高85折优惠</font>**
+```angular2html
+hSifTOnXWtI4XslyO8q9
+34EUuGggyOE8P9MjfmZk
+Bbi1L5j0Be7wQqdS2wQH
+Ycw6EkcXq7uTaU3Dl69C
+9szIpes9byafapPASrG8
+Y2kxVGb8VmpEo7xZ9Rr5
+ecOsJ75RwkJAg9wvCGNK
+qX6hKFmAnm3McNUapepx
+UV0GpQ6fntLhf1etXCZa
+Pe01mwEspUg9odzJOXj1
+```
 ## 功能特性
 
 - 🚀 **完整的API覆盖** - 支持闲鱼开放平台的所有主要API
