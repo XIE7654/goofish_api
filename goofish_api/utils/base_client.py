@@ -23,14 +23,12 @@ class BaseClient(object):
         self.app_key = app_key
         self.app_secret = app_secret
         self.seller_id = seller_id
-        print(app_key, app_secret)
         self.debug = debug
         self.headers = {
             "content-type": "application/json;charset=UTF-8",
         }
 
     def get_sign(self, body_json: str, timestamp: int):
-        print(body_json, 'body_json')
         # 将请求报文进行md5
         m = hashlib.md5()
         m.update(body_json.encode("utf8"))
