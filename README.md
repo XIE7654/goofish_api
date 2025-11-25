@@ -1,3 +1,6 @@
+## 如果这个项目让你有所收获，记得 Star 关注哦，这对我是非常不错的鼓励与支持。
+
+
 # Goofish API Python SDK
 
 [![Python Version](https://img.shields.io/badge/python-3.7+-blue.svg)](https://python.org)
