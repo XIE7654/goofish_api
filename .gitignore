@@ -13,3 +13,4 @@ lib64/
 .DS_Store
 docs/_build/
 **/*.env
+test.py
